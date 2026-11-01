@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Interio Hub</title>
+    <link rel="stylesheet" href="Contact.css">
+                             <!-- ICONS LINKS  -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+ <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Interio<span>Hub</span></div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Aboutus.html">About</a></li>
+            <li><a href="Product.html">Products</a></li>
+            <li><a href="#Reviews">Reviews</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="contact-page">
+
+        <!-- Page Heading -->
+        <header class="page-header">
+            <h1>Contact Us</h1>
+            <p>Have a question? Our team is here to help with orders, products, and services.</p>
+        </header>
+
+        <div class="contact-layout">
+
+            <!-- Contact Form -->
+            <section class="contact-form">
+                <h2>CONTACT US</h2>
+                <p class="form-description">
+                    Fill out the form below and our team will get back to you.
+                </p>
+
+                <form action="#" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your message *</label>
+                        <textarea id="message" name="message"
+                                  placeholder="Comment" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">SUBMIT</button>
+                </form>
+            </section>
+
+            <!-- Right Side -->
+            <div class="contact-right">
+
+                <!-- Google Map -->
+                <section class="map-box">
+                    <iframe
+                        src="https://maps.app.goo.gl/RUyheiEz58x1MQGK8"
+                        title="Fine Xperts Interior Karachi Location"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </section>
+
+                <!-- Complaints and Queries -->
+                <section class="complaints">
+                    <h2>COMPLAINTS AND QUERIES</h2>
+
+                    <p class="complaint-description">
+                        For questions about your orders, exchange, complaint or
+                        service query, please contact us at
+                    </p>
+
+                    <div class="info-row">
+                        <strong>Email</strong>
+                    <p>Gmail: <a href="mailto:xpertsintrior@gmail.com">xpertsintrior@gmail.com</a></p>
+                    </div>
+
+                    <div class="info-row">
+                        <strong>Call or Whatsapp</strong>
+                        <a href="tel:0331-8071799">0331-8071799</a>
+                    </div>
+
+                    <div class="info-row">
+                        <strong>Hours</strong>
+                        <span>MON-SAT: 10:00 AM TO 8:00 PM</span>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+     <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- INFORMATION -->
+            <div class="footer-section">
+                <h4>INFORMATION</h4>
+                <ul>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="#">Store Locator</a></li>
+                    <li><a href="Product.html">Product Catalogue</a></li>
+                    <li><a href="#">Interior Design Services</a></li>
+                    <li><a href="Contact.html">Corporate Orders</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <!-- HELP & SUPPORT -->
+            <div class="footer-section">
+                <h4>HELP &amp; SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Installment Plan</a></li>
+                    <li><a href="#">Bank Account Details</a></li>
+                    <li><a href="#">Digital Gift Vouchers</a></li>
+                    <li><a href="#">Delivery Charges</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- SHOPPING ASSISTANCE -->
+            <div class="footer-section contact">
+                <h4>SHOPPING ASSISTANCE</h4>
+
+                <p>Order Support:</p>
+                <p>Call / WhatsApp: 0300-2330613 & 0331-8071799</p>
+                <p>Gmail: <a href="mailto:xpertsintrior@gmail.com">xpertsintrior@gmail.com</a></p>
+                <p>Monday to Saturday: 09:00 AM – 09:00 PM</p>
+
+                <br>
+
+                <p>Complaint Support:</p>
+                <p>Call: 0331-8071799</p>
+               <p>Gmail: <a href="mailto:xpertsintrior@gmail.com">xpertsintrior@gmail.com</a></p>
+               <p>Monday to Saturday: 09:00 AM – 09:00 PM</p>
+                <br>
+
+                <p><a href="#">Complaint Form</a></p>
+
+                <br>
+
+                <p>OUR CATALOGUES</p>
+                <p><a href="#">Xperts Interio Works Catalogue</a></p>
+                <p><a href="#">Kitchen Catalogue</a></p>
+            </div>
+
+            <!-- NEWSLETTER -->
+            <div class="footer-section newsletter">
+                <h4>NEWSLETTER</h4>
+
+                <p>SIGN UP TO OUR NEWSLETTER TO RECEIVE EXCLUSIVE OFFERS.</p>
+
+                <form class="subscribe" onsubmit="return false;">
+                    <input type="email"
+                           placeholder="Enter your email"
+                           required>
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+
+                <div class="socials">
+                    <h4>OUR SOCIALS</h4>
+
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/xpertsinteriorr" class="facebook"
+                           aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+
+                        <a href="https://www.instagram.com/xpertsinteriors/" class="instagram"
+                           aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+
+
+                        <a href="#0331-8071799" class="whatsapp"
+                           aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+                           <a href="https://www.linkedin.com/company/interiorxpert-pk/?originalSubdomain=pk" class="linkedin"  
+                            aria-label="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+</body>
+</html>
