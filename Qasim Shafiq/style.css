@@ -1,0 +1,262 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #a67c52; /* Wooden/Gold accent color */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: #ccc;
+    font-weight: 300;
+}
+
+/* --- Filter Section --- */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: #888;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: #a67c52;
+}
+
+/* --- Gallery Section (Masonry Grid) --- */
+.gallery-section {
+    padding: 0 50px 80px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: 250px; /* Base row height */
+    gap: 20px;
+}
+
+/* Make some items taller for that Masonry look */
+.gallery-item:nth-child(1), .gallery-item:nth-child(4) {
+    grid-row: span 2;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #000;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.08); /* Zoom in effect */
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 5px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.overlay span {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a67c52;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .overlay h3, 
+.gallery-item:hover .overlay span {
+    transform: translateY(0); /* Text slides up on hover */
+}
+
+/* --- Call to Action --- */
+.cta-section {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    color: #aaa;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #fff;
+    color: #1a1a1a;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .nav-links {
+        margin-top: 15px;
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    .gallery-section {
+        padding: 0 20px 50px 20px;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        grid-auto-rows: 300px;
+    }
+    .gallery-item:nth-child(1), .gallery-item:nth-child(4) {
+        grid-row: span 1; /* Reset span on mobile */
+    }
+}
