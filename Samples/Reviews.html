@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Interio Hub</title>
+    <link rel="stylesheet" href="Reviews.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Interio Hub</h2>
+
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Aboutus.html">About Us</a></li>
+            <li><a href="Product.html">Products</a></li>
+            <li><a href="Reviews.html">Reviews</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Review Heading -->
+    <section class="review-header">
+        <h1>Customer Reviews</h1>
+        <p>See what our customers say about Interio Hub.</p>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+
+        <div class="review-card">
+            <div class="profile">A</div>
+            <h3>Ahmed Khan</h3>
+            <div class="stars">★★★★★</div>
+            <p>
+                Amazing furniture designs and excellent quality.
+                My living room looks beautiful and modern.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="profile">S</div>
+            <h3>Sara Ali</h3>
+            <div class="stars">★★★★★</div>
+            <p>
+                I really love the interior design ideas.
+                The designs are elegant, stylish, and comfortable.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="profile">U</div>
+            <h3>Usman Malik</h3>
+            <div class="stars">★★★★☆</div>
+            <p>
+                Great collection of furniture with beautiful
+                designs. I would recommend Interio Hub.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Write a Review -->
+    <section class="write-review">
+        <h2>Share Your Experience</h2>
+        <p>We would love to hear your feedback!</p>
+
+        <form id="reviewForm">
+            <input type="text" id="name"
+                   placeholder="Enter your name" required>
+
+            <select id="rating" required>
+                <option value="">Select your rating</option>
+                <option value="5">★★★★★ - Excellent</option>
+                <option value="4">★★★★☆ - Very Good</option>
+                <option value="3">★★★☆☆ - Good</option>
+                <option value="2">★★☆☆☆ - Fair</option>
+                <option value="1">★☆☆☆☆ - Poor</option>
+            </select>
+
+            <textarea id="message"
+                      placeholder="Write your review..."
+                      required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+
+        <p id="feedback"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Interio Hub. All Rights Reserved.</p>
+    </footer>
+
+
+</body>
+</html>
