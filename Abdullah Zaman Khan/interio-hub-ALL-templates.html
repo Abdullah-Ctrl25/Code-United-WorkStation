@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interio Hub: all header, nav and footer templates</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+<style>
+@property --gap{syntax:'<length>';inherits:false;initial-value:2px}
+
+:root{--bg:#f1f0ee;--fg:#1b1b1b;--mut:#666;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151515;--fg:#eee;--mut:#9a9a9a}}
+:root[data-theme="dark"]{--bg:#151515;--fg:#eee;--mut:#9a9a9a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 'DM Sans',system-ui,sans-serif}
+main{max-width:980px;margin:auto;padding:28px 16px 60px}
+h1{font:600 30px/1.15 Fraunces,serif;margin:0 0 6px}
+h1+p{color:var(--mut);margin:0}
+h2{font:500 15px 'DM Sans',sans-serif;margin:34px 0 10px}
+h3{font:600 22px Fraunces,serif;margin:50px 0 0;padding-top:20px;border-top:1px solid #8884}
+.stage{position:relative;overflow-x:auto;border-radius:14px;min-height:150px;font:500 15px/1.2 'DM Sans',system-ui,sans-serif;display:flex;flex-direction:column;justify-content:center}
+.stage>*{min-width:640px}
+.stage a{color:inherit;text-decoration:none;display:block;cursor:pointer}
+.stage ul{list-style:none;margin:0;padding:0;display:flex;gap:6px}
+.stage header,.stage footer .r{display:flex;align-items:center;justify-content:space-between}
+.stage a:focus-visible,.stage button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.logo{font:600 22px Fraunces,serif}
+
+.o1{background:linear-gradient(135deg,#b9a58f,#6f8570);padding:34px 24px}
+.o1 header{max-width:860px;margin:auto;width:100%;background:#fffc;backdrop-filter:blur(14px);border-radius:99px;padding:8px 8px 8px 26px;color:#23312a}
+.o1 li a{padding:10px 16px;border-radius:99px;transition:.3s}.o1 li a:hover{background:#23312a;color:#fff}
+.o1 .cta{background:#23312a;color:#fff;padding:12px 20px;border-radius:99px}
+
+.o2{background:#16302b;color:#efe8dc;padding:40px 30px}
+.o2 header{display:grid;grid-template-columns:1fr auto 1fr;gap:30px}
+.o2 ul{gap:28px}.o2 ul:last-child{justify-content:flex-end}
+.o2 .logo{font:italic 400 40px Fraunces;padding:0 22px;border-inline:1px solid #efe8dc55}
+.o2 li a{transition:.3s}.o2 li a:hover{color:#e9c46a;transform:translateY(-2px)}
+
+.o3{flex-direction:row;background:#cfdbe6;height:280px;justify-content:flex-start;color:#1e3a5f}
+.o3 header{flex-direction:column;justify-content:space-between;background:#1e3a5f;color:#e8f0f8;padding:26px 0;min-width:0;width:78px}
+.o3 .logo,.o3 ul{writing-mode:vertical-rl;transform:rotate(180deg)}
+.o3 ul{gap:22px}.o3 li a{transition:.3s}.o3 li a:hover{color:#ffc971;letter-spacing:.06em}
+.o3 p{font:italic 400 44px/1.05 Fraunces;margin:auto;max-width:340px;min-width:0}
+
+.o4{background:linear-gradient(#ffffff12 1px,#0000 1px) 0 0/24px 24px,linear-gradient(90deg,#ffffff12 1px,#0000 1px) 0 0/24px 24px,#0f2a4a;color:#d4e8ff;padding:44px 32px}
+.o4 header{border-bottom:1px solid #d4e8ff88;padding-bottom:14px;position:relative}
+.o4 header::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:11px;border-inline:1px solid #d4e8ff88}
+.o4 .logo{font:500 24px 'DM Sans';letter-spacing:.14em}.o4 ul{gap:34px}
+.o4 li a{position:relative;transition:.25s}
+.o4 li a::before{content:"";position:absolute;left:50%;bottom:-14px;width:1px;height:6px;background:#d4e8ff;transition:.25s}
+.o4 li a:hover{color:#ffd166}.o4 li a:hover::before{height:16px;background:#ffd166}
+
+.o5{background:#fff;color:#1d1d1f;padding:40px 32px}
+.o5 li a{position:relative;z-index:0;overflow:hidden;padding:11px 18px 11px 38px;border-radius:99px;transition:color .3s}
+.o5 li a::before{content:"";position:absolute;z-index:-1;left:14px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--c);transition:.4s}
+.o5 li a:hover{color:#fff}.o5 li a:hover::before{left:0;top:0;width:100%;height:100%;margin:0;border-radius:99px}
+.o5 li:nth-child(1){--c:#c8553d}.o5 li:nth-child(2){--c:#2f7a6b}.o5 li:nth-child(3){--c:#b7791f}.o5 li:nth-child(4){--c:#4b5bab}.o5 li:nth-child(5){--c:#8a4f7d}
+
+.o6{height:300px;background:#e3ecdf;color:#1c2b1f;justify-content:flex-start}
+.o6 header{padding:28px 32px}
+.o6 label{cursor:pointer;padding:10px 20px;border:1.5px solid currentColor;border-radius:99px;transition:.3s}
+.o6 label:hover{background:#1c2b1f;color:#e3ecdf}
+.o6 .ov{position:absolute;inset:0;min-width:0;background:#1c2b1f;color:#e3ecdf;padding:28px 32px;display:flex;flex-direction:column;align-items:flex-start;clip-path:circle(0 at 92% 12%);transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+.o6 .ov label{align-self:flex-end;margin-bottom:6px}.o6 .ov label:hover{background:#e3ecdf;color:#1c2b1f}
+.o6 .ov ul{flex-direction:column;gap:0}.o6 .ov li a{font:400 30px/1.25 Fraunces;transition:.3s}.o6 .ov li a:hover{font-style:italic;padding-left:14px}
+#m6:checked~.ov{clip-path:circle(150% at 92% 12%)}
+
+.o7{background:#f4d9d6;color:#3a1c2a;padding:36px 24px}
+.o7 header{flex-direction:column;gap:18px}.o7 .logo{font:400 38px Fraunces;letter-spacing:.04em}.o7 ul{gap:30px}
+.o7 li a{position:relative;padding-bottom:9px}
+.o7 li a::after{content:"";position:absolute;left:0;bottom:0;height:8px;width:0;transition:width .45s;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='8'%3E%3Cpath d='M0 4Q6 0 12 4T24 4' fill='none' stroke='%233a1c2a' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x}
+.o7 li a:hover::after{width:100%}
+
+.o8{background:#d7e3d3;color:#1f3a2c;padding:0 32px;height:190px;justify-content:flex-end}
+.o8 header{align-items:flex-end;border-bottom:3px solid #1f3a2c}.o8 .logo{padding-bottom:14px}.o8 ul{gap:12px}
+.o8 li a{padding:34px 22px 12px;border:2px solid #1f3a2c;border-bottom:0;border-radius:99px 99px 0 0;transition:.35s}
+.o8 li a:hover{background:#1f3a2c;color:#d7e3d3;padding-top:48px}
+
+.o9{background:linear-gradient(120deg,#2b2750,#b4637a 70%,#f2a65a);padding:44px 24px;align-items:center}
+.o9 header{background:#ffffff1f;backdrop-filter:blur(16px);border:1px solid #ffffff44;border-radius:22px;padding:10px 12px;gap:10px;color:#fff;justify-content:center;width:max-content}
+.o9 .logo{background:#fff;color:#2b2750;border-radius:14px;padding:8px 12px;font-size:18px}
+.o9 li{transition:transform .25s;transform-origin:bottom}.o9 li a{padding:10px 14px;border-radius:14px}
+.o9 li:hover{transform:scale(1.22) translateY(-4px)}.o9 li:hover+li,.o9 li:has(+li:hover){transform:scale(1.1)}
+.o9 li:hover a{background:#ffffff33}
+
+.o10{background:#dcd5ea;color:#2a2340;padding:34px 40px}
+.o10 .logo{display:flex;align-items:flex-end;gap:12px}
+.o10 b{font:400 92px/.8 Fraunces;letter-spacing:-.04em}.o10 .logo span{font:500 14px 'DM Sans';padding-bottom:4px}
+.o10 ul{flex-direction:column;gap:2px;align-items:flex-start}
+.o10 li a{display:flex;align-items:center;font:400 20px Fraunces;transition:.3s}
+.o10 li a::before{content:"";width:0;height:1.5px;background:currentColor;transition:.3s}
+.o10 li a:hover{gap:10px}.o10 li a:hover::before{width:28px}
+
+.o11{font-family:Syne,sans-serif;padding:34px 28px;background:radial-gradient(circle at 8% 40%,#2b59ff 0 5px,#0000 6px),radial-gradient(circle at 22% 80%,#ffc83d 0 7px,#0000 8px),radial-gradient(circle at 41% 20%,#ff7ab6 0 4px,#0000 5px),radial-gradient(circle at 63% 75%,#2bb673 0 6px,#0000 7px),radial-gradient(circle at 86% 30%,#2b59ff 0 6px,#0000 7px),radial-gradient(circle at 95% 85%,#ffc83d 0 4px,#0000 5px),#e8ebf0;color:#111}
+.o11 .logo{font:800 22px Syne;background:#111;color:#fff;padding:10px 16px;border-radius:12px}
+.o11 li a{font:800 15px Syne;padding:10px 16px;border:2px solid #111;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #111;transition:.15s}
+.o11 li a:hover{transform:translate(3px,3px);box-shadow:0 0 0 #111;background:#ffc83d}
+
+.o12{background:#fff;color:#14302e;justify-content:flex-start}
+.o12 .tk{background:#0e5c5c;color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;min-width:0;font-size:13px}
+.o12 .tk span{display:inline-block;padding-right:70px;animation:mq 16s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.o12 .tk span{animation:none}}
+.o12 header{padding:22px 28px}.o12 ul{gap:26px}.o12 li a{transition:.2s}.o12 li a:hover{color:#0e8a8a}
+.o12 .cta{border:1.5px solid #14302e;padding:10px 18px;border-radius:6px;transition:.2s}.o12 .cta:hover{background:#14302e;color:#fff}
+
+.o13{background:radial-gradient(220px circle at var(--x,70%) var(--y,50%),#c9a24b40,#0000 70%),#15120f;color:#e8dcc4;padding:38px 32px}
+.o13 header{position:relative;padding-bottom:20px}
+.o13 header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,#c9a24b,#c9a24b00)}
+.o13 .logo{color:#c9a24b;font:italic 400 28px Fraunces}.o13 ul{gap:30px}.o13 li a{transition:.3s}.o13 li a:hover{color:#c9a24b;letter-spacing:.05em}
+
+.o14{background:#2540ff;color:#fff;padding:40px 32px}
+.o14 .logo{font:800 28px Syne}.o14 ul{gap:28px}
+.o14 li a{overflow:hidden;height:1.25em;font:800 17px/1.25 Syne}
+.o14 li span{display:block;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.o14 li span::after{content:attr(data-t);display:block;color:#ffe14d}
+.o14 li a:hover span{transform:translateY(-100%)}
+
+.o15{background:#f4f6f8;padding:30px 28px;color:#1d2b3a}
+.o15 header{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;grid-template-rows:56px 56px;gap:3px;background:#1d2b3a;padding:3px;border-radius:4px}
+.o15 ul,.o15 li{display:contents}
+.o15 .logo{grid-row:1/3;background:#f4f6f8;display:flex;align-items:center;padding:0 20px;font-size:26px}
+.o15 li a{background:#f4f6f8;display:flex;align-items:center;padding:0 16px;transition:.25s}
+.o15 li:first-child a{grid-column:span 2}.o15 li a:hover{background:#ffd35c}
+
+.o16{background:#efeafc;color:#2a1f4d;padding:0}
+.o16 header{padding-right:24px;gap:24px}
+.o16 .l{background:#0d4d3f;color:#fff;padding:34px 90px 34px 30px;clip-path:polygon(0 0,100% 0,78% 100%,0 100%);margin-right:auto}
+.o16 li a{padding:9px 13px;border-radius:8px;transition:.25s}.o16 li a:hover{background:#0d4d3f;color:#fff}
+.o16 .cta{background:#ff5d8f;color:#fff;padding:12px 18px;border-radius:8px}
+
+
+/* 17 curtain pleats */
+.o17{background:repeating-linear-gradient(90deg,#6d2636,#9b4658 12px,#6d2636 24px);padding:36px 32px 30px}
+.o17::before{content:"";position:absolute;left:0;right:0;top:0;height:9px;background:linear-gradient(#f0d58a,#a8812c)}
+.o17 header{background:#2a0f17e6;color:#fbe9e4;border-radius:14px;padding:12px 22px}.o17 ul{gap:24px}
+.o17 li a{transition:.3s}.o17 li a:hover{color:#f0d58a;transform:translateY(-2px)}
+/* 18 moodboard cards */
+.o18{background:#dfe7e4;color:#222;padding:36px 32px}
+.o18 ul{gap:14px}.o18 li a{background:#fff;padding:12px 18px 14px;border-top:7px solid var(--c);box-shadow:0 5px 12px #0002;transition:.3s}
+.o18 li:nth-child(odd){transform:rotate(-3deg)}.o18 li:nth-child(even){transform:rotate(2.5deg)}
+.o18 li:hover{transform:rotate(0) translateY(-5px) scale(1.06)}
+.o18 li:nth-child(1){--c:#c8553d}.o18 li:nth-child(2){--c:#2f7a6b}.o18 li:nth-child(3){--c:#e0a83a}.o18 li:nth-child(4){--c:#4b5bab}.o18 li:nth-child(5){--c:#8a4f7d}
+/* 19 spinning seal */
+.o19{background:#1f3d36;color:#e8efe4;padding:22px 32px}
+.sw{position:relative;width:86px;height:86px;color:#f2c879}.sw svg{width:100%;height:100%;animation:sp 18s linear infinite}.sw b{position:absolute;inset:0;display:grid;place-items:center;font:italic 400 26px Fraunces,serif}
+@keyframes sp{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.sw svg{animation:none}}
+.o19 ul{gap:30px}.o19 li a{transition:.3s}.o19 li a:hover{color:#f2c879}
+/* 20 material library */
+.o20{background:#f3f1ee;color:#222;padding:40px 32px}.o20 li a{padding:11px 20px;border-radius:6px;transition:.3s}
+.o20 li:nth-child(1) a:hover{background:repeating-linear-gradient(90deg,#b98558,#c8966a 5px,#b07d50 9px);color:#fff}
+.o20 li:nth-child(2) a:hover{background:linear-gradient(135deg,#f6f6f6,#cfd0d8 40%,#f8f8f8 60%,#c8c9d0)}
+.o20 li:nth-child(3) a:hover{background:repeating-linear-gradient(0deg,#d3cbb9 0 2px,#e3ddcf 2px 4px)}
+.o20 li:nth-child(4) a:hover{background:linear-gradient(135deg,#8a6a2a,#e5c36d,#8a6a2a);color:#1a1200}
+.o20 li:nth-child(5) a:hover{background:radial-gradient(#3b5e8c,#243b5c);color:#fff}
+/* 21 lamp pull cord */
+.o21{background:#0e1422;color:#cbd5e6;padding:30px 90px 30px 32px;transition:background .6s,color .6s}.o21.lit{background:#ffeab8;color:#3a2a10}
+.o21 .logo{font-style:italic;font-weight:400;font-size:26px}.o21 ul{gap:26px}
+.pull{position:absolute;right:34px;top:0;border:0;background:none;color:inherit;cursor:pointer;padding:0 8px;transition:transform .15s}
+.pull:active{transform:translateY(8px)}.pull i{display:block;width:2px;height:46px;margin:auto;background:currentColor}
+.pull b{display:block;width:22px;height:22px;border-radius:50%;background:#59627a;transition:.5s}.o21.lit .pull b{background:#ffc94d;box-shadow:0 0 28px 9px #ffc94d}
+/* 22 rooms mega menu */
+.o22{background:#fff;color:#1b1b1b;min-height:310px;justify-content:flex-start}.o22 header{position:relative;padding:22px 32px}.o22 ul{gap:26px}
+.o22 li>a{padding:8px 0}.mega{position:absolute;left:0;right:0;top:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 32px;opacity:0;visibility:hidden;transform:translateY(8px);transition:.3s}
+.has:hover .mega,.has:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega a{height:150px;border-radius:12px;display:flex;align-items:flex-end;padding:14px;color:#fff;font:400 20px Fraunces,serif;transition:.3s}.mega a:hover{transform:translateY(-4px)}
+/* 23 numbered index */
+.o23{background:#2c3322;color:#eef0e0;padding:34px 32px}.o23 ul{counter-reset:n;gap:22px}
+.o23 li a{min-width:92px;padding-top:10px;border-top:2px solid #eef0e044;transition:.3s}
+.o23 li a::before{counter-increment:n;content:"0" counter(n);display:block;font:400 13px 'DM Sans';opacity:.6;margin-bottom:6px}
+.o23 li a:hover{border-color:#d7e36a;color:#d7e36a;padding-top:16px}
+/* 24 magic line */
+.o24{background:#f0ebe3;color:#222;padding:40px 32px}.o24 ul{position:relative}
+.o24 li{position:relative;z-index:1}.o24 li a{padding:11px 20px;transition:color .3s}.o24 li:hover a{color:#fff}
+.ml{position:absolute;left:0;top:0;height:100%;width:0;border-radius:99px;background:#2b2b2b;opacity:0;transition:transform .35s cubic-bezier(.5,0,.2,1),width .35s,opacity .3s}
+/* 25 picture frame */
+.o25{background:#b9c4b0;padding:36px 28px}
+.o25 header{max-width:760px;width:100%;margin:auto;background:#f5f2ea;color:#2a2118;border:10px solid #2a2118;box-shadow:inset 0 0 0 8px #f5f2ea,inset 0 0 0 9px #2a2118,0 14px 26px #0004;padding:22px 36px}
+.o25 .logo{font:italic 400 26px Fraunces,serif}.o25 ul{gap:24px}.o25 li a{transition:.3s}.o25 li a:hover{font-style:italic;letter-spacing:.03em}
+
+/* footers */
+.stage footer{width:100%}
+/* F1 giant wordmark */
+.f1{background:#1f3d36;color:#e8efe4;padding:30px 32px 0;overflow:hidden}.f1 ul{gap:24px}
+.f1 .big{font:600 clamp(60px,12vw,140px)/.8 Fraunces,serif;letter-spacing:-.04em;margin:34px 0 -.14em;color:#2f5f53;white-space:nowrap}
+/* F2 giant email */
+.f2{background:#fff;color:#1b1b1b;padding:40px 32px 24px;border:1px solid #0002;border-radius:14px}
+.f2 p{margin:0 0 6px;opacity:.6}.f2 .mail{display:inline-block;font:400 clamp(30px,6vw,60px)/1.1 Fraunces,serif;transition:.3s}.f2 .mail:hover{font-style:italic;color:#b5654a}
+.f2 .r{margin-top:34px;padding-top:18px;border-top:1px solid #0002;font-size:14px}.f2 ul{gap:18px}
+/* F3 paint chips */
+.f3{background:#1a1a1a;color:#eee;border-radius:14px;overflow:hidden}.chips{display:flex;height:100px}
+.chips a{flex:1;display:flex;align-items:flex-end;padding:10px;font:500 12px 'DM Sans';color:#fff;background:var(--c);transition:flex .45s}
+.chips a span{opacity:0;transition:.3s}.chips a:hover{flex:2.4}.chips a:hover span{opacity:1}
+.f3 .r{padding:22px 28px}.f3 ul{gap:20px}
+/* F4 floor plan */
+.f4{background:#f4f6f8;color:#1d2b3a;padding:24px 28px 16px;border-radius:14px}
+.f4 .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;grid-template-rows:56px 56px;gap:3px;background:#1d2b3a;padding:3px;border-radius:4px}
+.f4 ul,.f4 li{display:contents}.f4 .logo{grid-row:1/3;background:#f4f6f8;display:flex;align-items:center;padding:0 20px;font-size:26px}
+.f4 li a{background:#f4f6f8;display:flex;align-items:center;padding:0 16px;transition:.25s}.f4 li:first-child a{grid-column:span 2}.f4 li a:hover{background:#ffd35c}
+.f4 small{display:block;margin-top:12px;opacity:.7}
+/* F5 night lamp */
+.f5{background:radial-gradient(300px circle at 50% 0,#c9a24b30,#0000 70%),#15120f;color:#e8dcc4;text-align:center;padding:40px 32px 24px;border-radius:14px}
+.f5 .logo{color:#c9a24b;font:italic 400 32px Fraunces,serif;display:inline-block}.f5 ul{justify-content:center;gap:28px;margin:18px 0 26px}
+.f5 li a{transition:.3s}.f5 li a:hover{color:#c9a24b;letter-spacing:.05em}
+.f5 small{display:block;padding-top:16px;background:linear-gradient(90deg,#0000,#c9a24b66,#0000) top/100% 1px no-repeat;opacity:.8}
+/* F6 rounded lilac */
+.f6w{background:#fff;border-radius:14px;padding-top:30px}
+.f6{background:#dcd5ea;color:#2a2340;border-radius:44px 44px 0 0;padding:44px 36px 26px;text-align:center}
+.f6 h4{margin:0 0 18px;font:400 clamp(28px,5vw,46px)/1.1 Fraunces,serif}
+.f6 .btn{display:inline-block;background:#2a2340;color:#fff;padding:15px 30px;border-radius:99px;transition:.3s}.f6 .btn:hover{transform:translateY(-3px);background:#5a3fa8}
+.f6 ul{justify-content:center;flex-wrap:wrap;gap:10px;margin:26px 0 16px}.f6 li a{padding:9px 16px;border:1.5px solid #2a2340;border-radius:99px;transition:.25s}.f6 li a:hover{background:#2a2340;color:#dcd5ea}
+.f6 small{opacity:.7}
+
+
+/* 26 window blinds */
+.o26{--gap:2px;background:repeating-linear-gradient(180deg,#c9b48a 0 calc(14px - var(--gap)),#fff6dc calc(14px - var(--gap)) 14px);padding:36px 32px;transition:--gap .7s;color:#2b2214}
+.o26:hover{--gap:10px}.o26 header{background:#fffaf0ee;padding:14px 24px;border-radius:10px;box-shadow:0 8px 20px #0002}
+.o26 ul{gap:24px}.o26 li a{transition:.3s}.o26 li a:hover{color:#a06a1a}
+/* 27 art deco wallpaper */
+.o27{background:radial-gradient(circle at 50% 100%,#0000 0 28%,#c9a24b 29% 33%,#0000 34% 44%,#c9a24b 45% 49%,#0000 50%) 0 0/44px 22px,#1f4e5f;padding:36px 34px}
+.o27 header{background:#f6f1e4;color:#1f4e5f;padding:14px 28px;box-shadow:0 0 0 5px #f6f1e4,0 0 0 7px #c9a24b}
+.o27 .logo{font:italic 400 26px Fraunces,serif}.o27 ul{gap:24px}.o27 li a{transition:.3s}.o27 li a:hover{color:#b5842a;letter-spacing:.04em}
+/* 28 tape measure */
+.o28{background:#14171c;padding:36px 28px}
+.o28 header{background:#f4c430;color:#111;border-radius:12px;position:relative;padding:14px 22px 26px}
+.o28 header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;border-radius:0 0 12px 12px;background:repeating-linear-gradient(90deg,#111 0 1px,#0000 1px 10px) bottom/100% 7px no-repeat,repeating-linear-gradient(90deg,#111 0 2px,#0000 2px 50px) bottom/100% 12px no-repeat}
+.o28 .logo{background:#111;color:#f4c430;padding:6px 14px;border-radius:8px;font-size:20px}.o28 ul{gap:28px}
+.o28 li a{position:relative;font-weight:700}.o28 li a::after{content:"";position:absolute;left:50%;top:100%;margin-top:4px;width:2px;height:0;background:#d62828;transition:.25s}.o28 li a:hover::after{height:20px}
+/* 29 paint your header */
+.o29{--b:#e3ecdf;--f:#1c2b1f;background:var(--b);color:var(--f);padding:36px 32px;transition:background .5s,color .5s}
+.o29 ul{gap:26px}.o29 .logo{margin-right:auto;margin-left:0}.o29 header{gap:34px;justify-content:flex-start}
+.dots{display:flex;gap:8px;align-items:center;margin-left:auto}.dots span{font-size:13px;opacity:.7;margin-right:4px}
+.dots button{width:26px;height:26px;border-radius:50%;border:2px solid var(--f);background:var(--x);cursor:pointer;padding:0;transition:transform .2s}.dots button:hover{transform:scale(1.2)}
+/* 30 pendant lamps */
+.o30{background:#1c2433;padding:0 32px 36px;color:#2b2214}.o30 header{align-items:flex-start}
+.o30 .logo{color:#f2c879;padding-top:30px}.o30 ul{gap:28px;align-items:flex-start}
+.o30 li{position:relative;padding-top:var(--l);transform-origin:top center}
+.o30 li::before{content:"";position:absolute;top:0;left:50%;width:1.5px;height:var(--l);background:#f2c879aa}
+.o30 li a{background:#f2c879;padding:16px 20px 12px;border-radius:40px 40px 8px 8px;transition:box-shadow .4s}
+.o30 li:hover{animation:sw 1.4s ease-out}.o30 li:hover a{box-shadow:0 12px 40px 6px #f2c87988}
+@keyframes sw{20%{transform:rotate(7deg)}45%{transform:rotate(-5deg)}70%{transform:rotate(2.5deg)}100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.o30 li:hover{animation:none}}
+.o30 li:nth-child(1){--l:22px}.o30 li:nth-child(2){--l:50px}.o30 li:nth-child(3){--l:32px}.o30 li:nth-child(4){--l:62px}.o30 li:nth-child(5){--l:40px}
+
+/* F7 bookshelf */
+.f7{background:#efe9df;color:#2a1d12;padding:36px 32px 0;border-radius:14px}.f7 .r{align-items:flex-end}
+.f7 .l{padding-bottom:26px}.f7 .l p{margin:10px 0 0;max-width:300px;opacity:.75}
+.f7 ul{align-items:flex-end;gap:5px;border-bottom:14px solid #7a4a25;padding:0 12px}
+.f7 li a{writing-mode:vertical-rl;padding:16px 12px;border-radius:3px 3px 0 0;color:#fff;font:600 15px Fraunces,serif;background:var(--c);transition:transform .3s}
+.f7 li a:hover{transform:translateY(-10px)}
+.f7 li:nth-child(1) a{height:150px;--c:#2f7a6b}.f7 li:nth-child(2) a{height:120px;--c:#b5654a}.f7 li:nth-child(3) a{height:168px;--c:#4b5bab}.f7 li:nth-child(4) a{height:132px;--c:#8a4f7d}.f7 li:nth-child(5) a{height:108px;--c:#b08a3c}
+/* F8 budget finder */
+.f8{background:#1c2433;color:#e7ecf5;padding:36px 32px 20px;border-radius:14px}
+.f8 h4{font:400 clamp(26px,4vw,38px)/1.15 Fraunces,serif;margin:0 0 6px}.f8 p{margin:0 0 20px;opacity:.7}
+.bud{display:flex;gap:10px;flex-wrap:wrap}.bud a{padding:14px 22px;border:1.5px dashed #e7ecf599;border-radius:14px;transition:.3s}
+.bud b{display:block;font:600 18px Fraunces,serif;margin-bottom:4px}.bud span{font-size:13px;opacity:.75}
+.bud a:hover{background:#f2c879;color:#1c2433;border-color:#f2c879;border-style:solid;transform:translateY(-3px)}
+.f8 .r{margin-top:26px;padding-top:16px;border-top:1.5px dashed #e7ecf544;font-size:14px}.f8 ul{gap:18px}
+/* F9 parquet floor */
+.f9{background:#faf7f2;color:#2a1d12;border-radius:14px;overflow:hidden}.f9 .r{padding:30px 32px}.f9 ul{gap:22px}
+.f9 .floor{height:64px;border-top:8px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,#a8703c 25%,#0000 25%) -20px 0/40px 40px,linear-gradient(225deg,#a8703c 25%,#0000 25%) -20px 0/40px 40px,linear-gradient(315deg,#a8703c 25%,#0000 25%) 0 0/40px 40px,linear-gradient(45deg,#a8703c 25%,#8a5a2e 25%) 0 0/40px 40px}
+.floor span{background:#2a1d12cc;padding:8px 18px;border-radius:99px;font-size:13px}
+
+@keyframes sw{20%{transform:rotate(7deg)}45%{transform:rotate(-5deg)}70%{transform:rotate(2.5deg)}100%{transform:rotate(0)}}
+@keyframes fl{0%{opacity:.2}8%{opacity:1}14%{opacity:.3}22%{opacity:1}30%{opacity:.5}40%,100%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.o31 li:hover,.o34 li a:hover{animation:none}}
+
+/* 31 hanging plants */
+.o31{background:#eaf0e6;padding:0 32px 40px;color:#fff}.o31 header{align-items:flex-start}.o31 .logo{color:#2e4a35;padding-top:30px}
+.o31 ul{gap:32px;align-items:flex-start}.o31 li{position:relative;padding-top:var(--l);transform-origin:top center}
+.o31 li::before{content:"";position:absolute;top:0;left:50%;width:2px;height:calc(var(--l) + 14px);background:repeating-linear-gradient(#8a6f4a 0 3px,#6d5638 3px 6px)}
+.o31 li a{position:relative;margin-top:16px;background:#c8714f;border-top:5px solid #a95a3a;border-radius:6px 6px 24px 24px;padding:14px 22px 16px}
+.o31 li a::before,.o31 li a::after{content:"";position:absolute;bottom:100%;left:50%;margin-bottom:-2px;transition:transform .4s}
+.o31 li a::before{width:26px;height:28px;margin-left:-24px;background:#4f8a5b;border-radius:50% 0 50% 0;transform:rotate(-20deg);transform-origin:bottom right}
+.o31 li a::after{width:24px;height:34px;margin-left:-2px;background:#6aa876;border-radius:0 50% 0 50%;transform:rotate(18deg);transform-origin:bottom left}
+.o31 li:hover{animation:sw 1.4s ease-out}.o31 li a:hover::before{transform:rotate(-34deg) scale(1.25)}.o31 li a:hover::after{transform:rotate(30deg) scale(1.25)}
+.o31 li:nth-child(1){--l:18px}.o31 li:nth-child(2){--l:44px}.o31 li:nth-child(3){--l:28px}.o31 li:nth-child(4){--l:54px}.o31 li:nth-child(5){--l:36px}
+/* 32 fan deck */
+.o32{background:#f6f4ef;color:#222;min-height:260px;padding:30px 40px}.o32 header{align-items:flex-end}.o32 .logo{font-size:30px}
+.o32 ul{display:block;position:relative;width:200px;height:170px;margin-right:50px}
+.o32 li{position:absolute;left:0;bottom:0;width:176px;height:40px;transform-origin:0 100%;transform:rotate(calc(var(--i)*-3deg));transition:transform .55s cubic-bezier(.3,1.3,.5,1)}
+.o32 ul:hover li,.o32 ul:focus-within li{transform:rotate(calc(var(--i)*-12deg))}
+.o32 li a{height:100%;display:flex;align-items:center;padding-left:18px;color:#fff;background:var(--c);border-radius:0 10px 10px 0;box-shadow:0 2px 6px #0003}
+.o32 li:nth-child(1){--i:0;--c:#7d9482;z-index:5}.o32 li:nth-child(2){--i:1;--c:#b5654a;z-index:4}.o32 li:nth-child(3){--i:2;--c:#22303f;z-index:3}.o32 li:nth-child(4){--i:3;--c:#7b6a9b;z-index:2}.o32 li:nth-child(5){--i:4;--c:#b08a3c;z-index:1}
+/* 33 light switches */
+.o33{background:#c9d3cc;padding:30px 36px;color:#2b332e}.o33 ul{gap:16px}
+.o33 li a{width:76px;padding:10px 0 12px;background:#f8f8f5;border-radius:10px;box-shadow:0 3px 8px #0003,inset 0 0 0 2px #fff;text-align:center;font-size:12px;transition:.3s}
+.o33 li a::before{content:"";display:block;width:26px;height:38px;margin:0 auto 8px;border-radius:5px;background:linear-gradient(#ecece8,#d4d4cf);box-shadow:inset 0 0 0 1px #0002,0 2px 3px #0003;transform:perspective(120px) rotateX(-16deg);transition:transform .25s}
+.o33 li a:hover,.o33 li a:focus-visible{background:#fff3c8;box-shadow:0 0 26px 6px #ffd86a88,0 3px 8px #0003}.o33 li a:hover::before,.o33 li a:focus-visible::before{transform:perspective(120px) rotateX(16deg)}
+/* 34 neon sign */
+.o34{background:#120d17;padding:38px 32px;color:#fff}
+.o34 .logo{font:italic 400 30px Fraunces,serif;text-shadow:0 0 4px #fff,0 0 14px #19e6ff,0 0 32px #19e6ff}.o34 ul{gap:30px}
+.o34 li a{font:italic 400 20px Fraunces,serif;opacity:.7;text-shadow:0 0 4px #fff,0 0 12px var(--n),0 0 28px var(--n);transition:opacity .3s}
+.o34 li a:hover{opacity:1;animation:fl .9s linear}.o34 li:nth-child(odd){--n:#ff3ea5}.o34 li:nth-child(even){--n:#ffb02e}
+/* 35 mirror shine */
+.o35{background:#d7dcd3;padding:34px 36px}
+.o35 header{position:relative;overflow:hidden;background:linear-gradient(135deg,#dfe6ea,#f8fbfc 40%,#c9d3d9);color:#243038;border:10px solid #b8924a;border-radius:70px;box-shadow:inset 0 0 0 2px #7a5c24,inset 0 0 40px #0002,0 12px 28px #0003;padding:16px 40px}
+.o35 header::before{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:90px;background:linear-gradient(90deg,#fff0,#fffc,#fff0);transform:translateX(-200px) skewX(-20deg);transition:transform .9s}
+.o35 header:hover::before{transform:translateX(1100px) skewX(-20deg)}.o35 ul{gap:24px}.o35 li a{transition:.3s}.o35 li a:hover{letter-spacing:.04em}
+/* 36 wall frames on wire */
+.o36{background:#d9dfe8;padding:26px 34px 40px}.o36 header{align-items:flex-start}.o36 .logo{padding-top:34px;color:#2a2118}
+.o36 ul{gap:26px;align-items:flex-start}.o36 li{position:relative;padding-top:20px}
+.o36 li::before{content:"";position:absolute;top:0;left:50%;width:7px;height:7px;margin-left:-3px;border-radius:50%;background:#555}
+.o36 li::after{content:"";position:absolute;top:3px;left:12%;right:12%;height:20px;background:linear-gradient(to bottom left,#0000 calc(50% - .75px),#666 50%,#0000 calc(50% + .75px)) left/50% 100% no-repeat,linear-gradient(to bottom right,#0000 calc(50% - .75px),#666 50%,#0000 calc(50% + .75px)) right/50% 100% no-repeat}
+.o36 li a{position:relative;z-index:1;background:#fff;color:#2a2118;border:6px solid var(--c);padding:14px 22px;box-shadow:0 8px 14px #0003;transform-origin:50% 0;transform:rotate(var(--r));transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.o36 li a:hover{transform:rotate(0)}
+.o36 li:nth-child(1){--r:-4deg;--c:#2a2118}.o36 li:nth-child(2){--r:3deg;--c:#8a5a2e}.o36 li:nth-child(3){--r:-2deg;--c:#c9a24b}.o36 li:nth-child(4){--r:5deg;--c:#2a2118}.o36 li:nth-child(5){--r:-3deg;--c:#8a5a2e}
+
+/* F10 rug with fringe */
+.f10{background:#e9e4dc;border-radius:14px;padding:18px 0;width:100%}
+.f10::before,.f10::after{content:"";display:block;height:14px;margin:0 20px;background:repeating-linear-gradient(90deg,#efe5cf 0 2px,#0000 2px 6px)}
+.f10 .body{margin:0 20px;border:12px solid;border-image:repeating-linear-gradient(45deg,#e8c47a 0 6px,#7a2e3a 6px 12px) 12;background:#7a2e3a;box-shadow:inset 0 0 0 3px #e8c47a;color:#f6ecd8;text-align:center;padding:34px 20px}
+.f10 h4{font:400 clamp(26px,4vw,40px)/1.1 Fraunces,serif;margin:0 0 6px}.f10 ul{justify-content:center;gap:24px;margin:18px 0 16px}
+.f10 li a{transition:.3s}.f10 li a:hover{color:#e8c47a}.f10 small{opacity:.75}
+/* F11 doormat */
+.f11{background:#d9dfe8;border-radius:14px;padding:36px 28px 22px;text-align:center;color:#2a2118;width:100%}
+.mat{display:inline-block;padding:26px 56px;border:6px solid #3d3226;border-radius:8px;background:repeating-linear-gradient(90deg,#0000 0 2px,#0003 2px 3px),repeating-linear-gradient(0deg,#0000 0 3px,#0002 3px 4px),#7a6650;color:#f4eadb;font:600 clamp(30px,5vw,48px)/1 Fraunces,serif;letter-spacing:.04em;transform:rotate(-1.5deg);box-shadow:0 8px 16px #0003}
+.f11 .btn{display:inline-block;margin-top:24px;background:#2a2118;color:#f4eadb;padding:13px 26px;border-radius:99px;transition:.3s}.f11 .btn:hover{transform:translateY(-3px);background:#8a5a2e}
+.f11 ul{justify-content:center;gap:22px;margin:22px 0 14px}.f11 small{opacity:.7}
+
+:root{--blush:#f4d9d6;--plum:#3a1c2a;--rose:#ff8fa3}
+.site-footer{font:400 16px/1.6 'DM Sans',system-ui,sans-serif}
+.site-footer a{color:inherit;text-decoration:none}
+.site-footer a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer .logo{font:400 38px Fraunces,serif;letter-spacing:.04em}
+.edge-wavy{height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='16'%3E%3Cpath d='M0 16V8Q12 0 24 8T48 8V16Z' fill='%233a1c2a'/%3E%3C/svg%3E") repeat-x bottom}
+/* ===== Footer ===== */
+.edge{border:0;height:3px;margin:0;background:var(--plum)}
+.site-footer{background:var(--plum);color:var(--blush);padding:56px 24px 28px}
+.site-footer .wrap{max-width:1100px;margin:auto}
+
+/* wavy underline on hover */
+.wave-link{position:relative;display:inline-block;padding-bottom:7px}
+.wave-link::after{content:"";position:absolute;left:0;bottom:0;height:8px;width:0;transition:width .45s;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='8'%3E%3Cpath d='M0 4Q6 0 12 4T24 4' fill='none' stroke='%23f4d9d6' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x}
+.wave-link:hover::after,.wave-link:focus-visible::after{width:100%}
+
+.site-footer .cta{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between;padding-bottom:44px;border-bottom:1px solid #f4d9d633}
+.site-footer .cta h2{margin:0;max-width:620px;font:400 clamp(28px,4.5vw,44px)/1.15 Fraunces,serif}
+.site-footer .cta h2 em{color:var(--rose)}
+.site-footer .btn{display:inline-block;background:var(--blush);color:var(--plum);padding:14px 26px;border-radius:99px;font-weight:500;transition:.3s}
+.site-footer .btn:hover{background:var(--rose);transform:translateY(-2px)}
+
+.site-footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;padding:44px 0}
+.site-footer .cols h3{margin:0 0 14px;font:400 20px Fraunces,serif;color:var(--rose)}
+.site-footer .cols p{margin:0;max-width:300px;opacity:.85}
+.site-footer .cols li{margin-bottom:8px}
+
+.site-footer .news form{display:flex;gap:8px;margin-top:14px}
+.site-footer .news input{flex:1;min-width:0;padding:12px 16px;border-radius:99px;border:1px solid #f4d9d655;background:transparent;color:var(--blush);font:inherit}
+.site-footer .news input::placeholder{color:#f4d9d699}
+.site-footer .news input:focus{outline:2px solid var(--rose);outline-offset:2px}
+.site-footer .news button{padding:12px 18px;border:0;border-radius:99px;background:var(--rose);color:var(--plum);font:500 15px 'DM Sans',sans-serif;cursor:pointer}
+
+.site-footer .bottom{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;padding-top:22px;border-top:1px solid #f4d9d633;font-size:14px;opacity:.8}
+.site-footer .bottom ul{display:flex;gap:20px}
+
+</style></head><body><main>
+<h1>Interio Hub: all 36 headers and 13 footers</h1>
+<p>Every header and footer from this chat in one file. Each preview has its own CSS rules named after its number (for example .o30 or .f7), so copy only the CSS and HTML of the one you pick. Hover and click to try them. On a phone, swipe sideways inside a preview.</p>
+<h3>Headers and nav bars (1 to 36)</h3>
+<h2>1. Floating glass pill</h2>
+<div class="stage o1"><header><a class="logo">Interio Hub</a><ul class="n"></ul><a class="cta">Book a visit</a></header></div>
+
+<h2>2. Centered logo, split menu</h2>
+<div class="stage o2"><header><ul class="n" data-r="0,2"></ul><a class="logo">Interio Hub</a><ul class="n" data-r="2,5"></ul></header></div>
+
+<h2>3. Vertical side rail</h2>
+<div class="stage o3"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header><p>Rooms that feel like you.</p></div>
+
+<h2>4. Blueprint with measuring ticks</h2>
+<div class="stage o4"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>5. Paint swatch dots</h2>
+<div class="stage o5"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>6. Menu button with circle-reveal overlay (click Menu)</h2>
+<div class="stage o6"><header><a class="logo">Interio Hub</a><label for="m6" tabindex="0">Menu</label></header><input type="checkbox" id="m6" hidden><div class="ov"><label for="m6" tabindex="0">Close</label><ul class="n"></ul></div></div>
+
+<h2>7. Wavy fabric underline</h2>
+<div class="stage o7"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>8. Arched window tabs</h2>
+<div class="stage o8"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>9. Magnifying dock</h2>
+<div class="stage o9"><header><a class="logo">IH</a><ul class="n"></ul></header></div>
+
+<h2>10. Big monogram, stacked links</h2>
+<div class="stage o10"><header><a class="logo"><b>IH</b><span>Interio Hub</span></a><ul class="n"></ul></header></div>
+
+<h2>11. Terrazzo and chunky buttons</h2>
+<div class="stage o11"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>12. Offer ticker above a clean bar</h2>
+<div class="stage o12"><div class="tk"><span>Free design consultation for new homes and offices</span><span>Free design consultation for new homes and offices</span><span>Free design consultation for new homes and offices</span></div><header><a class="logo">Interio Hub</a><ul class="n"></ul><a class="cta">Book a visit</a></header></div>
+
+<h2>13. Lamp-light spotlight (move your mouse)</h2>
+<div class="stage o13"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>14. Rolling text links</h2>
+<div class="stage o14"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>15. Floor plan, each link is a room</h2>
+<div class="stage o15"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>16. Diagonal color block</h2>
+<div class="stage o16"><header><div class="l"><a class="logo">Interio Hub</a></div><ul class="n"></ul><a class="cta">Book a visit</a></header></div>
+
+<h2>17. Curtain pleats with a brass rod</h2>
+<div class="stage o17"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>18. Moodboard cards, slightly tilted</h2>
+<div class="stage o18"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>19. Spinning studio seal</h2>
+<div class="stage o19"><header><div class="sw"><svg viewBox="0 0 100 100"><defs><path id="c19" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs><text font-size="9" letter-spacing="2.2" fill="currentColor"><textPath href="#c19">INTERIO HUB • DESIGN STUDIO • </textPath></text></svg><b>IH</b></div><ul class="n"></ul></header></div>
+<h2>20. Material library (hover each link)</h2>
+<div class="stage o20"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>21. Lamp pull cord (click the bulb)</h2>
+<div class="stage o21" id="lamp"><button class="pull" aria-label="Toggle the light" aria-pressed="false"><i></i><b></b></button><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>22. Rooms mega menu (hover Services)</h2>
+<div class="stage o22"><header><a class="logo">Interio Hub</a><ul><li><a href="#">Projects</a></li><li class="has"><a href="#">Services</a><div class="mega"><a href="#" style="background:linear-gradient(160deg,#7d9482,#3f5a47)">Living room</a><a href="#" style="background:linear-gradient(160deg,#a58bc2,#4d3a73)">Bedroom</a><a href="#" style="background:linear-gradient(160deg,#d28a63,#8a3e22)">Kitchen</a><a href="#" style="background:linear-gradient(160deg,#6f8fb5,#1f3a5f)">Office</a></div></li><li><a href="#">Studio</a></li><li><a href="#">Contact</a></li></ul></header></div>
+<h2>23. Numbered editorial index</h2>
+<div class="stage o23"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>24. Sliding pill that follows your mouse</h2>
+<div class="stage o24"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>25. Gallery picture frame</h2>
+<div class="stage o25"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>26. Window blinds (hover the header, the slats open)</h2>
+<div class="stage o26"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>27. Art deco wallpaper with a plaque</h2>
+<div class="stage o27"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>28. Tape measure (hover a link)</h2>
+<div class="stage o28"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>29. Paint your header (click a color dot)</h2>
+<div class="stage o29" id="paint"><header><a class="logo">Interio Hub</a><ul class="n"></ul><div class="dots"><span>Paint it</span>
+<button aria-label="Sage" data-b="#e3ecdf" data-f="#1c2b1f" style="--x:#e3ecdf"></button><button aria-label="Clay" data-b="#e9c7b4" data-f="#4a1f10" style="--x:#e9c7b4"></button><button aria-label="Ink" data-b="#1b2a3d" data-f="#e9f0f8" style="--x:#1b2a3d"></button><button aria-label="Lilac" data-b="#dcd5ea" data-f="#2a2340" style="--x:#dcd5ea"></button></div></header></div>
+<h2>30. Hanging pendant lamps (hover to swing)</h2>
+<div class="stage o30"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>31. Hanging plant pots (hover to sway)</h2>
+<div class="stage o31"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>32. Paint fan deck (hover to spread the fan)</h2>
+<div class="stage o32"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>33. Wall light switches (hover to flip on)</h2>
+<div class="stage o33"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>34. Neon sign (hover to flicker)</h2>
+<div class="stage o34"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>35. Gold-framed mirror (hover for the shine)</h2>
+<div class="stage o35"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>36. Crooked wall frames (hover to straighten)</h2>
+<div class="stage o36"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h3>Footers (F1 to F13)</h3>
+<h2>F1. Giant wordmark</h2>
+<div class="stage"><footer class="f1"><div class="r"><ul class="n"></ul><span>hello@yourdomain.com</span></div><div class="big">Interio Hub</div></footer></div>
+<h2>F2. One big email link</h2>
+<div class="stage"><footer class="f2"><p>Have a room in mind?</p><a class="mail" href="#">hello@yourdomain.com</a><div class="r"><span>© 2026 Interio Hub</span><ul class="n" data-r="0,4"></ul></div></footer></div>
+<h2>F3. Paint chip strip (hover the chips)</h2>
+<div class="stage"><footer class="f3"><div class="chips"><a href="#" style="--c:#7d9482"><span>Sage 214</span></a><a href="#" style="--c:#b5654a"><span>Clay 032</span></a><a href="#" style="--c:#22303f"><span>Ink 900</span></a><a href="#" style="--c:#e3d3b8;color:#222"><span>Sand 120</span></a><a href="#" style="--c:#7b6a9b"><span>Dusk 410</span></a><a href="#" style="--c:#b08a3c"><span>Brass 075</span></a></div><div class="r"><a class="logo">Interio Hub</a><ul class="n"></ul></div></footer></div>
+<h2>F4. Floor plan (pairs with header 15)</h2>
+<div class="stage"><footer class="f4"><div class="grid"><a class="logo">Interio Hub</a><ul class="n"></ul></div><small>© 2026 Interio Hub</small></footer></div>
+<h2>F5. Night lamp (pairs with the spotlight header)</h2>
+<div class="stage"><footer class="f5"><a class="logo">Interio Hub</a><ul class="n"></ul><small>© 2026 Interio Hub. All rights reserved.</small></footer></div>
+<h2>F6. Rounded lilac with big call to action</h2>
+<div class="stage f6w"><footer class="f6"><h4>Ready to redo a room?</h4><a class="btn" href="#">Book a free visit</a><ul class="n"></ul><small>© 2026 Interio Hub</small></footer></div>
+
+<h2>F7. Bookshelf, links are book spines</h2>
+<div class="stage"><footer class="f7"><div class="r"><div class="l"><a class="logo">Interio Hub</a><p>Interior design for homes, offices and shops.</p></div><ul class="n"></ul></div></footer></div>
+<h2>F8. Budget finder</h2>
+<div class="stage"><footer class="f8"><h4>What is your budget?</h4><p>Pick one and we will suggest the best-fit design.</p><div class="bud"><a href="#"><b>Budget-friendly</b><span>Smart choices that stretch your money</span></a><a href="#"><b>Mid-range</b><span>The best balance of style and cost</span></a><a href="#"><b>Premium</b><span>Fully custom, no limits</span></a></div><div class="r"><span>© 2026 Interio Hub</span><ul class="n" data-r="0,4"></ul></div></footer></div>
+<h2>F9. Parquet floor</h2>
+<div class="stage"><footer class="f9"><div class="r"><a class="logo">Interio Hub</a><ul class="n"></ul></div><div class="floor"><span>© 2026 Interio Hub</span></div></footer></div>
+
+<h2>F10. Rug with fringe</h2>
+<div class="stage"><footer class="f10"><div class="body"><h4>Come on in, make yourself at home</h4><ul class="n"></ul><small>© 2026 Interio Hub</small></div></footer></div>
+<h2>F11. Welcome doormat</h2>
+<div class="stage"><footer class="f11"><div class="mat">Welcome home</div><br><a class="btn" href="#">Book a visit</a><ul class="n"></ul><small>© 2026 Interio Hub</small></footer></div>
+
+<h2>F12. Classic footer with a wavy edge on top</h2>
+<div class="stage"><div class="edge-wavy" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="cta">
+      <h2>Let’s design a room you’ll love <em>coming home to.</em></h2>
+      <a class="btn" href="#">Book a visit</a>
+    </div>
+
+    <div class="cols">
+      <div>
+        <a class="logo" href="#" style="font-size:30px">Interio Hub</a>
+        <p style="margin-top:12px">Interior design for homes, offices and shops. We plan, style and build spaces that feel like you.</p>
+      </div>
+      <nav aria-label="Explore">
+        <h3>Explore</h3>
+        <ul>
+          <li><a class="wave-link" href="#">Projects</a></li>
+          <li><a class="wave-link" href="#">Services</a></li>
+          <li><a class="wave-link" href="#">Studio</a></li>
+          <li><a class="wave-link" href="#">Journal</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Visit or call</h3>
+        <ul>
+          <li>Your studio address here</li>
+          <li><a class="wave-link" href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></li>
+          <li><a class="wave-link" href="tel:+920000000000">+92 000 0000000</a></li>
+          <li>Mon to Sat, 10am to 7pm</li>
+        </ul>
+      </div>
+      <div class="news">
+        <h3>Ideas in your inbox</h3>
+        <p>One short email a month with fresh room ideas.</p>
+        <form onsubmit="event.preventDefault()">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <span>© 2026 Interio Hub. All rights reserved.</span>
+      <ul>
+        <li><a class="wave-link" href="#">Instagram</a></li>
+        <li><a class="wave-link" href="#">Pinterest</a></li>
+        <li><a class="wave-link" href="#">Facebook</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer></div>
+
+<h2>F13. Classic footer with a straight line on top</h2>
+<div class="stage"><hr class="edge">
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="cta">
+      <h2>Let’s design a room you’ll love <em>coming home to.</em></h2>
+      <a class="btn" href="#">Book a visit</a>
+    </div>
+
+    <div class="cols">
+      <div>
+        <a class="logo" href="#" style="font-size:30px">Interio Hub</a>
+        <p style="margin-top:12px">Interior design for homes, offices and shops. We plan, style and build spaces that feel like you.</p>
+      </div>
+      <nav aria-label="Explore">
+        <h3>Explore</h3>
+        <ul>
+          <li><a class="wave-link" href="#">Projects</a></li>
+          <li><a class="wave-link" href="#">Services</a></li>
+          <li><a class="wave-link" href="#">Studio</a></li>
+          <li><a class="wave-link" href="#">Journal</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Visit or call</h3>
+        <ul>
+          <li>Your studio address here</li>
+          <li><a class="wave-link" href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></li>
+          <li><a class="wave-link" href="tel:+920000000000">+92 000 0000000</a></li>
+          <li>Mon to Sat, 10am to 7pm</li>
+        </ul>
+      </div>
+      <div class="news">
+        <h3>Ideas in your inbox</h3>
+        <p>One short email a month with fresh room ideas.</p>
+        <form onsubmit="event.preventDefault()">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <span>© 2026 Interio Hub. All rights reserved.</span>
+      <ul>
+        <li><a class="wave-link" href="#">Instagram</a></li>
+        <li><a class="wave-link" href="#">Pinterest</a></li>
+        <li><a class="wave-link" href="#">Facebook</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer></div>
+</main>
+<script>
+const L=['Projects','Services','Studio','Journal','Contact'];
+document.querySelectorAll('ul.n').forEach(u=>{const[a,b]=(u.dataset.r||'0,5').split(',');u.innerHTML=L.slice(a,b).map(t=>`<li><a href="#"><span data-t="${t}">${t}</span></a></li>`).join('')});
+document.addEventListener('click',e=>{if(e.target.closest('.stage a'))e.preventDefault()});
+/* 13 spotlight follows the mouse */
+const s13=document.querySelector('.o13');
+s13.addEventListener('pointermove',e=>{const r=s13.getBoundingClientRect();s13.style.setProperty('--x',e.clientX-r.left+'px');s13.style.setProperty('--y',e.clientY-r.top+'px')});
+/* 6 menu button works with the keyboard */
+document.querySelectorAll('.o6 label').forEach(l=>l.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();l.click()}}));
+/* 21 lamp pull cord */
+const lamp=document.getElementById('lamp'),pb=lamp.querySelector('.pull');
+pb.addEventListener('click',()=>pb.setAttribute('aria-pressed',lamp.classList.toggle('lit')));
+/* 24 sliding pill */
+document.querySelectorAll('.o24 ul').forEach(u=>{const p=document.createElement('i');p.className='ml';u.append(p);
+u.addEventListener('mouseover',e=>{const l=e.target.closest('li');if(l){p.style.width=l.offsetWidth+'px';p.style.transform=`translateX(${l.offsetLeft}px)`;p.style.opacity=1}});
+u.addEventListener('mouseleave',()=>p.style.opacity=0)});
+/* 29 paint your header */
+const pt=document.getElementById('paint');
+pt.querySelectorAll('.dots button').forEach(b=>b.addEventListener('click',()=>{pt.style.setProperty('--b',b.dataset.b);pt.style.setProperty('--f',b.dataset.f)}));
+</script>
+</body></html>
