@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Interio Hub: all header, nav and footer templates</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,wght@0,300..700;1,300..700&family=Syne:wght@600;800&display=swap" rel="stylesheet">
 <style>
 @property --gap{syntax:'<length>';inherits:false;initial-value:2px}
 
@@ -355,10 +355,101 @@ h3{font:600 22px Fraunces,serif;margin:50px 0 0;padding-top:20px;border-top:1px 
 .site-footer .bottom{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;padding-top:22px;border-top:1px solid #f4d9d633;font-size:14px;opacity:.8}
 .site-footer .bottom ul{display:flex;gap:20px}
 
+
+/* 37 sunlight shadows */
+.o37{--sx:6px;--sy:6px;background:radial-gradient(180px circle at var(--px,82%) var(--py,18%),#fff8d6,#0000 70%),#f0e4c8;padding:44px 36px;color:#2b2214}
+.o37 .logo{font-size:34px;text-shadow:var(--sx) var(--sy) 8px #0004,calc(var(--sx)*2) calc(var(--sy)*2) 16px #0002}
+.o37 ul{gap:30px}.o37 li a{font:600 19px Fraunces,serif;text-shadow:var(--sx) var(--sy) 6px #0004}
+/* 38 cabinet drawers */
+.o38{background:repeating-linear-gradient(90deg,#0000 0 6px,#0001 6px 7px),#5b3f27;padding:34px 28px;color:#f5e6c8}
+.o38 ul{gap:10px}.o38 li a{width:118px;padding:18px 0 14px;text-align:center;color:#2a1a0c;background:linear-gradient(#d4a96f,#bf8f56);border-radius:6px;box-shadow:inset 0 0 0 3px #0002,0 3px 0 #3d2916;transition:.3s}
+.o38 li a::before{content:"";display:block;width:16px;height:16px;margin:0 auto 10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f7e3a6,#a8812c);box-shadow:0 2px 3px #0006}
+.o38 li b{display:block;font:600 16px Fraunces,serif}.o38 li small{display:block;max-height:0;overflow:hidden;opacity:0;font-size:12px;transition:.3s}
+.o38 li a:hover{transform:translateY(8px) scale(1.04);box-shadow:inset 0 0 0 3px #0002,0 12px 14px #0006}.o38 li a:hover small{max-height:16px;opacity:.8;margin-top:5px}
+/* 39 doorways */
+.o39{background:#2b2f3a;padding:36px 32px 0;min-height:250px;justify-content:flex-end;color:#fff}
+.o39 header{align-items:flex-end;border-bottom:10px solid #6b4a2e}.o39 .logo{padding-bottom:14px;font-size:26px}.o39 ul{gap:12px;align-items:flex-end}
+.o39 li{position:relative;width:96px;height:132px;perspective:520px;background:radial-gradient(#ffe7a6,#f2b84b);border:5px solid #1a1d26;border-bottom:0}
+.o39 li a{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--c);font-size:14px;transform-origin:left center;transition:transform .6s cubic-bezier(.3,1,.4,1)}
+.o39 li a::after{content:"";position:absolute;right:8px;top:62%;width:8px;height:8px;border-radius:50%;background:#e9c46a}
+.o39 li a:hover,.o39 li a:focus-visible{transform:rotateY(-72deg)}
+.o39 li:nth-child(1){--c:#3d7a6b}.o39 li:nth-child(2){--c:#b5654a}.o39 li:nth-child(3){--c:#4b5bab}.o39 li:nth-child(4){--c:#8a4f7d}.o39 li:nth-child(5){--c:#9a7a2c}
+/* 40 radial menu */
+.o40{background:#e6e1f2;min-height:310px;padding:26px;color:#2a2340;justify-content:flex-start}
+.o40 header{justify-content:center;align-items:flex-start}.rad{position:relative;width:84px;height:84px}
+.o40 .core{position:relative;z-index:2;width:84px;height:84px;border-radius:50%;background:#2a2340;color:#fff;display:grid;place-items:center;font:italic 400 28px Fraunces,serif}
+.o40 ul{display:block;position:absolute;inset:0}
+.o40 li{position:absolute;left:50%;top:50%;margin:-39px;width:78px;height:78px;transform:scale(0);transition:transform .45s cubic-bezier(.3,1.4,.5,1);transition-delay:calc(var(--i)*40ms)}
+.o40 li a{width:100%;height:100%;border-radius:50%;background:var(--c);display:grid;place-items:center;color:#fff;font-size:13px}
+.rad:hover li,.rad:focus-within li{transform:rotate(var(--a)) translateY(120px) rotate(calc(var(--a)*-1)) scale(1)}
+.o40 li:nth-child(1){--i:0;--a:-64deg;--c:#7d9482}.o40 li:nth-child(2){--i:1;--a:-32deg;--c:#b5654a}.o40 li:nth-child(3){--i:2;--a:0deg;--c:#4b5bab}.o40 li:nth-child(4){--i:3;--a:32deg;--c:#8a4f7d}.o40 li:nth-child(5){--i:4;--a:64deg;--c:#b08a3c}
+/* 41 track lighting */
+.o41{background:#16181d;padding:0 32px 36px;color:#8a909d}
+.o41 header{border-top:7px solid #3a3f4b;padding-top:14px;align-items:flex-start}.o41 .logo{color:#e9ecf2;padding-top:30px}.o41 ul{gap:34px}
+.o41 li{position:relative;padding-top:28px}
+.o41 li::before{content:"";position:absolute;top:-6px;left:50%;width:22px;height:18px;margin-left:-11px;background:#8d94a3;border-radius:4px 4px 10px 10px}
+.o41 li::after{content:"";position:absolute;top:12px;left:50%;width:150px;height:100px;margin-left:-75px;clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);background:linear-gradient(#ffe9a8bb,#ffe9a800);opacity:0;transition:opacity .4s;pointer-events:none}
+.o41 li:hover::after{opacity:1}.o41 li a{position:relative;z-index:1;padding:30px 6px 4px;transition:.4s}.o41 li a:hover{color:#fff3c8}
+/* 42 mood lighting */
+.o42{background:#2b2b2b;color:#fff;padding:42px 32px;transition:background .6s}
+.o42 .logo{font:italic 400 28px Fraunces,serif}.o42 ul{gap:12px}.o42 li a{padding:9px 16px;font:400 20px Fraunces,serif;opacity:.85;transition:.3s}.o42 li a:hover{opacity:1}
+.o42:has(li:nth-child(1):hover){background:#2f7a6b}.o42:has(li:nth-child(2):hover){background:#b5654a}.o42:has(li:nth-child(3):hover){background:#4b5bab}.o42:has(li:nth-child(4):hover){background:#8a4f7d}.o42:has(li:nth-child(5):hover){background:#9a7a2c}
+/* 43 scrolling wallpaper */
+.o43{background:radial-gradient(#e2a8a3 2px,#0000 3px) 0 0/22px 22px,radial-gradient(#e2a8a3 2px,#0000 3px) 11px 11px/22px 22px,#f7e7e4;animation:wp 3s linear infinite;padding:40px 32px}
+@keyframes wp{to{background-position:22px 0,33px 11px}}.o43:hover{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.o43{animation:none}}
+.o43 header{background:#fff;color:#4a2430;border-radius:99px;padding:10px 12px 10px 28px;box-shadow:0 6px 18px #4a243022}
+.o43 li a{padding:10px 16px;border-radius:99px;transition:.3s}.o43 li a:hover{background:#4a2430;color:#fff}
+/* 44 staircase */
+.o44{background:#e8ecef;padding:36px 32px 0;min-height:230px;justify-content:flex-end;color:#1d2b3a}
+.o44 header{align-items:flex-end}.o44 .logo{padding-bottom:16px}.o44 ul{gap:0;align-items:flex-end}
+.o44 li a{padding:14px 26px calc(14px + var(--h));background:var(--c);color:#fff;border-radius:6px 6px 0 0;transition:transform .3s}.o44 li a:hover{transform:translateY(-8px)}
+.o44 li:nth-child(1){--h:0px;--c:#a9bdd0}.o44 li:nth-child(2){--h:20px;--c:#8ba6c0}.o44 li:nth-child(3){--h:40px;--c:#6e8dac}.o44 li:nth-child(4){--h:60px;--c:#567a9d}.o44 li:nth-child(5){--h:80px;--c:#3f6890}
+
+
+/* 45 hairline slide */
+.o45{background:#fafaf8;color:#161616;padding:38px 36px}.o45 header{border-bottom:1px solid #16161622;padding-bottom:18px}.o45 ul{gap:30px}
+.o45 li a{position:relative;padding:4px 0}
+.o45 li a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.65,0,.35,1)}
+.o45 li a:hover::after{transform:scaleX(1);transform-origin:left}
+/* 46 focus fade */
+.o46{background:#efece7;color:#2a2823;padding:40px 36px}.o46 .logo{font:400 26px Fraunces,serif;letter-spacing:.02em}.o46 ul{gap:34px}
+.o46 li{transition:opacity .5s,filter .5s}.o46 ul:hover li:not(:hover){opacity:.3;filter:blur(1.5px)}
+/* 47 sans to serif roll */
+.o47{background:#111;color:#f1f1ef;padding:40px 36px}.o47 ul{gap:32px}
+.o47 li a{overflow:hidden;height:1.3em;line-height:1.3}.o47 li span{display:block;transition:transform .55s cubic-bezier(.65,0,.35,1)}
+.o47 li span::after{content:attr(data-t);display:block;font:italic 400 1.1em/1.2 Fraunces,serif}.o47 li a:hover span{transform:translateY(-100%)}
+/* 48 hidden until needed */
+.o48{background:#f4f3f0;color:#1d1d1b;padding:40px 36px}.o48 .rv{display:flex;align-items:center;gap:22px}
+.o48 .rv>span{font-size:14px;opacity:.65;padding:8px 0}.o48 .rv ul{gap:24px}
+.o48 .rv li{opacity:0;transform:translateX(14px);transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*50ms)}
+.o48 .rv:hover li,.o48 .rv:focus-within li{opacity:1;transform:none}
+.o48 li:nth-child(1){--i:0}.o48 li:nth-child(2){--i:1}.o48 li:nth-child(3){--i:2}.o48 li:nth-child(4){--i:3}.o48 li:nth-child(5){--i:4}
+/* 49 weight shift */
+.o49{background:#fbfaf7;color:#222;padding:40px 36px}.o49 ul{gap:30px}
+.o49 li a{display:inline-grid;font:300 19px Fraunces,serif;transition:font-weight .5s}
+.o49 li a::after{content:attr(data-t);font-weight:600;height:0;visibility:hidden;overflow:hidden}.o49 li a:hover{font-weight:600}
+/* 50 soft press */
+.o50{background:#e6e7ea;color:#3a3d44;padding:38px 36px}
+.o50 header{border-radius:20px;box-shadow:8px 8px 18px #c5c7cc,-8px -8px 18px #fff;padding:14px 18px 14px 28px}
+.o50 li a{padding:10px 18px;border-radius:14px;transition:box-shadow .4s,color .4s}
+.o50 li a:hover{box-shadow:inset 4px 4px 8px #c5c7cc,inset -4px -4px 8px #fff;color:#111}
+/* 51 moving edge light */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.o51{background:#0e0f12;color:#d9dbe0;padding:38px 36px}
+.o51 header{border-radius:99px;padding:12px 14px 12px 28px;border:1px solid transparent;background:linear-gradient(#0e0f12,#0e0f12) padding-box,conic-gradient(from var(--ang),#ffffff10,#ffffffcc 15%,#ffffff10 30%,#ffffff10) border-box;animation:rot 6s linear infinite}
+@keyframes rot{to{--ang:360deg}}@media (prefers-reduced-motion:reduce){.o51 header{animation:none}}
+.o51 li a{padding:9px 16px;border-radius:99px;transition:background .4s,color .4s}.o51 li a:hover{background:#ffffff14;color:#fff}
+/* 52 wipe fill */
+.o52{background:#fff;color:#111;padding:40px 36px}.o52 ul{gap:8px}
+.o52 li a{position:relative;z-index:0;overflow:hidden;padding:11px 20px;border:1px solid #11111133;border-radius:99px;transition:color .5s}
+.o52 li a::before{content:"";position:absolute;inset:0;z-index:-1;background:#111;transform:translateY(101%);transition:transform .5s cubic-bezier(.65,0,.35,1)}
+.o52 li a:hover{color:#fff}.o52 li a:hover::before{transform:none}
+
 </style></head><body><main>
-<h1>Interio Hub: all 36 headers and 13 footers</h1>
+<h1>Interio Hub: all 52 headers and 13 footers</h1>
 <p>Every header and footer from this chat in one file. Each preview has its own CSS rules named after its number (for example .o30 or .f7), so copy only the CSS and HTML of the one you pick. Hover and click to try them. On a phone, swipe sideways inside a preview.</p>
-<h3>Headers and nav bars (1 to 36)</h3>
+<h3>Headers and nav bars (1 to 52)</h3>
 <h2>1. Floating glass pill</h2>
 <div class="stage o1"><header><a class="logo">Interio Hub</a><ul class="n"></ul><a class="cta">Book a visit</a></header></div>
 
@@ -450,6 +541,40 @@ h3{font:600 22px Fraunces,serif;margin:50px 0 0;padding-top:20px;border-top:1px 
 <div class="stage o35"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
 <h2>36. Crooked wall frames (hover to straighten)</h2>
 <div class="stage o36"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>37. Sunlight shadows (move your mouse, the shadows follow)</h2>
+<div class="stage o37" id="sun"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>38. Cabinet drawers (hover to pull one out)</h2>
+<div class="stage o38"><header><a class="logo">Interio Hub</a><ul><li><a href="#"><b>Projects</b><small>See our work</small></a></li><li><a href="#"><b>Services</b><small>What we do</small></a></li><li><a href="#"><b>Studio</b><small>Meet the team</small></a></li><li><a href="#"><b>Journal</b><small>Ideas and tips</small></a></li><li><a href="#"><b>Contact</b><small>Let’s talk</small></a></li></ul></header></div>
+<h2>39. Doorways (hover a door to open it)</h2>
+<div class="stage o39"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>40. Radial menu (hover the IH circle)</h2>
+<div class="stage o40"><header><div class="rad"><a class="core" href="#">IH</a><ul class="n"></ul></div></header></div>
+<h2>41. Track lighting (hover a link to switch on its spotlight)</h2>
+<div class="stage o41"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>42. Mood lighting (the whole header changes color per link)</h2>
+<div class="stage o42"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>43. Slowly scrolling wallpaper (hover to pause)</h2>
+<div class="stage o43"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>44. Staircase</h2>
+<div class="stage o44"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+
+<h2>45. Hairline slide (the line enters one side and leaves the other)</h2>
+<div class="stage o45"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>46. Focus fade (the other links blur away)</h2>
+<div class="stage o46"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>47. Sans to serif roll</h2>
+<div class="stage o47"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>48. Hidden until needed (hover Menu)</h2>
+<div class="stage o48"><header><a class="logo">Interio Hub</a><div class="rv"><span>Menu</span><ul class="n"></ul></div></header></div>
+<h2>49. Weight shift (thin letters turn bold, no jumping)</h2>
+<div class="stage o49"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>50. Soft press (embossed bar, links press in)</h2>
+<div class="stage o50"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>51. Moving edge light</h2>
+<div class="stage o51"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
+<h2>52. Wipe fill</h2>
+<div class="stage o52"><header><a class="logo">Interio Hub</a><ul class="n"></ul></header></div>
 
 <h3>Footers (F1 to F13)</h3>
 <h2>F1. Giant wordmark</h2>
@@ -589,7 +714,7 @@ h3{font:600 22px Fraunces,serif;margin:50px 0 0;padding-top:20px;border-top:1px 
 </main>
 <script>
 const L=['Projects','Services','Studio','Journal','Contact'];
-document.querySelectorAll('ul.n').forEach(u=>{const[a,b]=(u.dataset.r||'0,5').split(',');u.innerHTML=L.slice(a,b).map(t=>`<li><a href="#"><span data-t="${t}">${t}</span></a></li>`).join('')});
+document.querySelectorAll('ul.n').forEach(u=>{const[a,b]=(u.dataset.r||'0,5').split(',');u.innerHTML=L.slice(a,b).map(t=>`<li><a href="#" data-t="${t}"><span data-t="${t}">${t}</span></a></li>`).join('')});
 document.addEventListener('click',e=>{if(e.target.closest('.stage a'))e.preventDefault()});
 /* 13 spotlight follows the mouse */
 const s13=document.querySelector('.o13');
@@ -606,5 +731,11 @@ u.addEventListener('mouseleave',()=>p.style.opacity=0)});
 /* 29 paint your header */
 const pt=document.getElementById('paint');
 pt.querySelectorAll('.dots button').forEach(b=>b.addEventListener('click',()=>{pt.style.setProperty('--b',b.dataset.b);pt.style.setProperty('--f',b.dataset.f)}));
+/* 37 sunlight shadows follow the mouse */
+const sun=document.getElementById('sun');
+sun.addEventListener('pointermove',e=>{const r=sun.getBoundingClientRect();
+sun.style.setProperty('--sx',((r.left+r.width/2-e.clientX)/r.width*26)+'px');
+sun.style.setProperty('--sy',((r.top+r.height/2-e.clientY)/r.height*26)+'px');
+sun.style.setProperty('--px',(e.clientX-r.left)+'px');sun.style.setProperty('--py',(e.clientY-r.top)+'px')});
 </script>
 </body></html>
